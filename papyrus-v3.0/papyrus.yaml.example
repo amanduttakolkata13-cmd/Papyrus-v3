@@ -1,0 +1,58 @@
+# Papyrus v3.0 Configuration
+version: "3.0"
+
+# LLM Provider Settings
+provider:
+  # Provider type: anthropic, openai, gemini, ollama, bedrock, vertex
+  type: "openai"
+  
+  # Model name (provider-specific)
+  model: "gpt-4o"
+  
+  # Base URL (for OpenAI-compatible endpoints like Ollama, OpenRouter)
+  # base_url: "http://localhost:11434/v1"
+  
+  # API Key (set via PAPYRUS_API_KEY env var instead for security)
+  # api_key: "sk-..."
+
+# Permission Mode: readonly, workspace, full
+permissions:
+  mode: "workspace"
+  
+  # Allowed directories (empty = current directory only)
+  allowed_dirs: []
+
+# Workflow Settings
+workflow:
+  # Enable the Plan-Audit-Build pipeline
+  enabled: true
+  
+  # Maximum iterations for optimization
+  max_iterations: 3
+  
+  # Auto-create git checkpoints before builds
+  auto_checkpoint: true
+
+# Rules for the audit stage
+rules:
+  - name: "No eval() in Python"
+    severity: "block"
+    pattern:
+      type: "regex"
+      files: ["*.py"]
+      forbidden: ["eval\\("]
+  
+  - name: "No console.log in production"
+    severity: "warn"
+    pattern:
+      type: "regex"
+      files: ["*.ts", "*.tsx", "*.js"]
+      forbidden: ["console\\.log\\("]
+
+# Display Settings  
+display:
+  # Theme: dark, light, auto
+  theme: "dark"
+  
+  # Show thinking/reasoning
+  show_thinking: true

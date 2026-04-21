@@ -1,0 +1,10 @@
+{
+  "theme": "dark",
+  "permissions": "workspace",
+  "model": "auto",
+  "provider": "auto",
+  "keybindings": "default",
+  "showThinking": false,
+  "compactAfterTurns": 12,
+  "maxTokens": 8192
+}

@@ -1,0 +1,9 @@
+{
+  "profile": "openai",
+  "env": {
+    "OPENAI_BASE_URL": "https://api.openai.com/v1",
+    "OPENAI_MODEL": "gpt-4o",
+    "OPENAI_API_KEY": "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"
+  },
+  "createdAt": "2026-04-18T16:46:01.364Z"
+}
